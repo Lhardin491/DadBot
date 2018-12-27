@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client()
 const giveMeAJoke = require('give-me-a-joke');
+const config = require("./config.js");
 
 client.on('ready', function() {
     console.log('Logged in as: ' + client.username + " - (" + client.id + ")");
@@ -33,4 +34,4 @@ client.on("message", message => {
 	
 });
 
-client.login('NDk3OTYwOTI5NjkxMTcyODY1.DwaEDA.YZdDRSJ1VdovF-z4tsdzZKAOmZo');
+client.login(config.token);
