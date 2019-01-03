@@ -1,6 +1,6 @@
 class MockMessage 
 {
-    constructor(text) 
+    constructor(text, func) 
     {
         this.content = text
         this.author = {}
@@ -8,6 +8,7 @@ class MockMessage
             send: (msg) =>
             {
                 console.log(`Message sent: ${msg}`)
+                if(func) func(msg)
             }
         }
     }
@@ -49,9 +50,9 @@ class TestClient
     }
 
 
-    mockMessage(text)
+    mockMessage(text, func)
     {
-        let message = new MockMessage(text)
+        let message = new MockMessage(text, func)
         this.trigger('message', message)
     }
 }
