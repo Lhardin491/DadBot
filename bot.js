@@ -45,7 +45,15 @@ function init(client)
 		let str = message.content;
 
 		//replies dank to any image link, needs to be confined to a channel...
-		let modified = ' ' + str.toLowerCase().replace(/i am/g, 'im').replace(/[^a-z ]/g, '');
+		let modified = str
+		.toLowerCase()
+		.replace(/i am/g, 'im')
+		.replace(/[^a-z\.\?\! ]/g, '')
+		.split(/\.|\?|\!/)
+		.map(i=>' ' + i)
+		.filter(i=>i.indexOf(' im ') != -1)
+		.join(' and ')
+
 		let start 
 		if((start = modified.indexOf(' im ')) != -1) {
 			message.channel.send(`Hi ${modified.substr(start).split(' im ').map(i=>i.trim()).filter(i=>i).join(' ')}, I'm Dad!`);

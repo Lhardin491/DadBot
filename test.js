@@ -48,3 +48,39 @@ client.mockMessage(`I am thirsty and I'm hungry`, msg =>
         throw "Wrong response to thirst & hungry"
     }
 })
+
+client.mockMessage('I am worried', msg =>
+{
+    if(msg === `Hi worried, I'm Dad!`)
+    {
+
+    }
+    else
+    {
+        throw "Does not pad correctly"
+    }
+})
+
+client.mockMessage(`I am angry. This does not work.`, msg =>
+{
+    if(msg === `Hi angry, I'm Dad!`)
+    {
+
+    }
+    else
+    {
+        throw 'Sentence issues'
+    }
+})
+
+client.mockMessage(`I am dumb! This is silly. I'm a programmer`, msg =>
+{
+    if(msg === `Hi dumb and a programmer, I'm Dad!`)
+    {
+
+    }
+    else
+    {
+        throw "Does not recognize I'm in multiple sentences"
+    }
+})
