@@ -50,12 +50,21 @@ function init(client)
 		.replace(/i am/g, 'im')
 		.replace(/[^a-z\.\?\! ]/g, '')
 		.split(/\.|\?|\!/)
-		.map(i=>' ' + i)
-		.filter(i=>i.indexOf(' im ') != -1)
+		.map(i=>
+		{ 
+			i = ' ' + i
+			let start = i.indexOf(' im ')
+			if(start === -1)
+			{
+				return 
+			}
+			return i.substr(start)
+		})
+		.filter(i=>i)
 		.join(' and ')
 
 		let start 
-		if((start = modified.indexOf(' im ')) != -1) {
+		if(modified) {
 			message.channel.send(`Hi ${modified.substr(start).split(' im ').map(i=>i.trim()).filter(i=>i).join(' ')}, I'm Dad!`);
 		}
 

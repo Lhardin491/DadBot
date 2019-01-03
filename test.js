@@ -73,9 +73,15 @@ client.mockMessage(`I am angry. This does not work.`, msg =>
     }
 })
 
-client.mockMessage(`I am dumb! This is silly. I'm a programmer`, msg =>
+
+client.mockMessage('You and him are jerks.', msg =>
 {
-    if(msg === `Hi dumb and a programmer, I'm Dad!`)
+    throw 'Should not reply'
+})
+
+client.mockMessage(`I am dumb! This is silly. Also I'm programming`, msg =>
+{
+    if(msg === `Hi dumb and programming, I'm Dad!`)
     {
 
     }
