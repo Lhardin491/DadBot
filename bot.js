@@ -4,7 +4,7 @@ const giveMeAJoke = require('give-me-a-joke');
 const config = require("./config.js");
 
 client.on('ready', function() {
-    console.log('Logged in as: ' + client.username + " - (" + client.id + ")");
+	console.log('Logged in as: ' + client.username + " - (" + client.id + ")");
 });
 
 
@@ -52,11 +52,11 @@ client.on("message", message => {
 	}
 
 	// if message starts with "!"
-    if (str.startsWith("!")) { 
-		// store the command for cleaner code/reading
+	if (str.startsWith("!")) { 
+	// store the command for cleaner code/reading
 		let command = str.substring(1); 
-        runCommand(command, message, str);
-    }
+		runCommand(command, message, str);
+	}
 });
 
 client.login(config.token);
