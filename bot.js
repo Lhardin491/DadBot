@@ -4,7 +4,7 @@ const giveMeAJoke = require('give-me-a-joke');
 const config = require("./config.js");
 
 client.on('ready', function() {
-	console.log('Logged in as: ' + client.username + " - (" + client.id + ")");
+	console.log(`Logged in as: ${client.username} - (${client.id})`);
 });
 
 
@@ -47,13 +47,14 @@ client.on("message", message => {
 
 	//replies dank to any image link, needs to be confined to a channel...
 	let modified = ' ' + str.toLowerCase().replace(/i am/g, 'im').replace(/[^a-z ]/g, '');
-	if(modified.indexOf(' im ') != -1) {
-		message.channel.send(`Hi ${modified.split(' im ').map(i=>i.trim()).filter(i=>i).join(' ')}, I'm Dad!`);
+	let start 
+	if((start = modified.indexOf(' im ')) != -1) {
+		message.channel.send(`Hi ${modified.substr(start).split(' im ').map(i=>i.trim()).filter(i=>i).join(' ')}, I'm Dad!`);
 	}
 
 	// if message starts with "!"
 	if (str.startsWith("!")) { 
-	// store the command for cleaner code/reading
+		// store the command for cleaner code/reading
 		let command = str.substring(1); 
 		runCommand(command, message, str);
 	}
