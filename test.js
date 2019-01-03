@@ -84,3 +84,15 @@ client.mockMessage(`I am dumb! This is silly. I'm a programmer`, msg =>
         throw "Does not recognize I'm in multiple sentences"
     }
 })
+
+client.mockMessage(`I'm simple`, msg =>
+{
+    if(msg === `Hi simple, I'm Dad!`)
+    {
+
+    }
+    else
+    {
+        throw "Does not split correctly"
+    }
+})
