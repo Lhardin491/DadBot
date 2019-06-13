@@ -6,7 +6,7 @@
   "dependencies": {
     "discord.io": "^2.5.3",
     "discord.js": "^11.4.2",
-    "give-me-a-joke": "^0.1.2"
+    "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {
