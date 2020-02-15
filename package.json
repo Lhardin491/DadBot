@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node bot.js",
+    "start": "node index.js",
     "test": "node test.js"
   },
   "keywords": [

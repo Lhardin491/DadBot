@@ -2,7 +2,7 @@ const request = require('request');
 
 function init(client) {
 	client.on('ready', function () {
-		console.log(`Logged in as: ${client.username} - (${client.id})`);
+		console.log(`Logged in as: ${client.user.username} - (${client.user.id})`);
 	});
 
 
@@ -40,7 +40,7 @@ function init(client) {
 			}
 		};
 		request(options, function (err, response, body) {
-			if(!err && response.statusCode === 200){
+			if (!err && response.statusCode === 200) {
 				body = JSON.parse(body);
 				return joke(body.joke);
 			}
