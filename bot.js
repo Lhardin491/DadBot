@@ -28,6 +28,7 @@ function init(client) {
 			return commands[cmd](message, str)
 		}
 		else {
+			throw new Error("Unknown command. Please don't do that again")
 			// unknown command
 		}
 	}
